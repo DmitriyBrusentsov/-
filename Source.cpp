@@ -29,4 +29,20 @@ double find_Fibonacci_number(int n, double fb)
 	fb = (pow(((1 + sqrt(5)) / 2), n) - pow(((1 - sqrt(5)) / 2), n)) / sqrt(5);
 	return fb;
 }
-
+/**
+*Находит cледующие числа ряда Фибоначчи
+*
+*@param n порядковый номер  числа Фибоначчи
+*@param fb значение числа Фибоначчи
+*/
+void find_next_Fibonacci_numbers(int n, double  fb, double nextfb, double prevfb)
+{
+	for (int i = 0; i < 10; i++) {
+		prevfb = find_Fibonacci_number(n + i, fb);
+		fb = find_Fibonacci_number((n + 1) + i, fb);
+		nextfb = prevfb + fb;
+		printf("%i-ое число = %g\n", (n + 1) + i, nextfb);
+	}
+	getchar();
+	getchar();
+}
